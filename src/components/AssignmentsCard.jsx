@@ -15,7 +15,7 @@ const AssignmentsCard = ({ assignment }) => {
       <div className="relative rounded-md w-full md:w-2/5 m-0 overflow-hidden mx-auto md:mx-0 text-gray-700 bg-white dark:bg-black dark:bg-opacity-20 shrink-0 bg-clip-border">
         <div className="flex h-full items-center p-6">
         <img
-          src={assignment.image}
+          src={assignment?.image}
           alt="image"
           className="object-cover rounded-xl w-full h-full"
         />
