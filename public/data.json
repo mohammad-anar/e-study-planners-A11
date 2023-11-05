@@ -1,0 +1,43 @@
+[
+    {
+      "title": "History of Ancient Civilizations",
+      "image": "https://example.com/image1.jpg",
+      "description": "Explore the rise and fall of ancient civilizations, focusing on their social, economic, and political structures. This assignment is out of a total of 100 marks.",
+      "total_marks": 100,
+      "difficulty_level": "Intermediate",
+      "due_date": "2023-11-15"
+    },
+    {
+      "title": "Chemistry Lab Report",
+      "image": "https://example.com/image2.jpg",
+      "description": "Conduct a series of chemical experiments in your own lab setup or virtually. This assignment is out of a total of 100 marks.",
+      "total_marks": 100,
+      "difficulty_level": "Advanced",
+      "due_date": "2023-12-05"
+    },
+    {
+      "title": "Literary Analysis - The Great Gatsby",
+      "image": "https://example.com/image3.jpg",
+      "description": "Analyze F. Scott Fitzgerald's \"The Great Gatsby\" and write a literary analysis essay. This assignment is out of a total of 100 marks.",
+      "total_marks": 100,
+      "difficulty_level": "Intermediate",
+      "due_date": "2023-10-30"
+    },
+    {
+      "title": "Mathematics Problem Set - Calculus II",
+      "image": "https://example.com/image4.jpg",
+      "description": "Solve a series of challenging calculus problems that cover integration, differentiation, and applications. This assignment is out of a total of 100 marks.",
+      "total_marks": 100,
+      "difficulty_level": "Advanced",
+      "due_date": "2023-11-20"
+    },
+    {
+      "title": "Biology Research Project - Ecology",
+      "image": "https://example.com/image5.jpg",
+      "description": "Conduct a research project on an ecological topic of your choice. This assignment is out of a total of 100 marks.",
+      "total_marks": 100,
+      "difficulty_level": "Intermediate",
+      "due_date": "2023-12-10"
+    }
+  ]
+  
