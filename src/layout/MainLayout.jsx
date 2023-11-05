@@ -60,7 +60,7 @@ const MainLayout = ({ children }) => {
             </Link>
           </div>
           <div className="flex-1  hidden lg:block">
-            <div className="flex items-center gap-2 text-md font-semibold mr-12">
+            <div className="flex flex-wrap items-center gap-2 text-md font-semibold mr-12">
               {/* Navbar menu content here */}
               <Navbar></Navbar>
             </div>

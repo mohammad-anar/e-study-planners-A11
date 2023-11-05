@@ -2,6 +2,7 @@ import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
 import Footer from "../components/Footer";
+import Faq from "../components/Faq";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 const Home = () => {
@@ -19,9 +20,21 @@ const Home = () => {
           <div data-src="https://www.ice.cam.ac.uk/sites/www.ice.cam.ac.uk/files/styles/leading/public/istock-1220226086.jpg?itok=ihnlFN0h" />
         </AutoplaySlider>
       </div>
-      <div>
+      {/* featured section  */}
+      <section>
+        
+      </section>
+      {/* faq section  */}
+      <section>
+        <div className="mt-20 px-[10%]">
+          <h2 className="text-5xl font-bold border-b-2 border-purple-600 w-[200px] text-center mx-auto pb-4 text-purple-600">FA&Q</h2>
+        </div>
+        <Faq></Faq>
+      </section>
+      {/* footer  */}
+      <section>
         <Footer></Footer>
-      </div>
+      </section>
     </>
   );
 };

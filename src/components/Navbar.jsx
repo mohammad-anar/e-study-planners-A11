@@ -18,6 +18,9 @@ const Navbar = () => {
               <NavLink className={({isActive, isPending}) => {
                 return isPending? "Pending": isActive? "underline text-red btn btn-sm bg-green-600 border-none text-white hover:bg-green-400": "btn  btn-ghost btn-sm"
               }}  to={"/register"}>Sign Up</NavLink>
+              <NavLink className={({isActive, isPending}) => {
+                return isPending? "Pending": isActive? "underline text-red btn btn-sm bg-green-600 border-none text-white hover:bg-green-400": "btn  btn-ghost btn-sm"
+              }}  to={"/createassignment"}>Create Assignment</NavLink>
         </>
     );
 };
