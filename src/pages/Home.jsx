@@ -1,14 +1,15 @@
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
+import Footer from "../components/Footer";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 const Home = () => {
   return (
-    <div>
-      <div className="h-[90vh]">
+    <>
+      <div className="z-40 hidden lg:block" >
         <AutoplaySlider
-        className="h-screen"
+        className="h-screen hidden md:block"
           play={true}
           cancelOnInteraction={false} // should stop playing on user interaction
           interval={6000}
@@ -18,7 +19,10 @@ const Home = () => {
           <div data-src="https://www.ice.cam.ac.uk/sites/www.ice.cam.ac.uk/files/styles/leading/public/istock-1220226086.jpg?itok=ihnlFN0h" />
         </AutoplaySlider>
       </div>
-    </div>
+      <div>
+        <Footer></Footer>
+      </div>
+    </>
   );
 };
 

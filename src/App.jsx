@@ -9,6 +9,7 @@ function App() {
       <MainLayout>
         <Outlet></Outlet>
       </MainLayout>
+      
     </div>
   )
 }

@@ -1,11 +1,12 @@
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useMyContext from "../hooks/useMyContext";
+import toast from "react-hot-toast";
 
 
 
 const Login = () => {  
-
+const navigate = useNavigate();
 const {signInUser} = useMyContext();
 
 const handleSubmit = (e) => {
@@ -16,8 +17,15 @@ const handleSubmit = (e) => {
   console.log(email, password);
   // login user 
   signInUser(email, password)
-  .then(res => console.log(res.user))
-  .catch(err => console.log(err))
+  .then(res => {
+    console.log(res.user);
+      toast.success("Successfully login!");
+      navigate("/")
+    
+  })
+  .catch(err => {
+    toast.error(err.message);
+  })
 }
   return (
     <div>

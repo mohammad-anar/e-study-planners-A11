@@ -4,9 +4,26 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import useMyContext from "../hooks/useMyContext";
 import { TbMailHeart } from "react-icons/tb";
+import toast from "react-hot-toast";
+import { useEffect, useState } from "react";
+import { BsMoon, BsSun } from "react-icons/bs";
 
 const MainLayout = ({ children }) => {
+  const [mode, setMode] = useState("light");
   const {user, logout} = useMyContext();
+
+  const handleMood = () => {
+    if(mode === "light") {
+      setMode("dark")
+    }else{
+      setMode("light")
+    }
+  }
+  useEffect(() => {
+    const html = document.documentElement;
+    html.classList = mode;
+  },[mode])
+
   return (
     <div className="drawer">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -38,7 +55,7 @@ const MainLayout = ({ children }) => {
             </label>
           </div>
           <div className="flex-1 px-2 mx-2 text-3xl font-bold">
-            <Link>
+            <Link >
               eStudy<span className="text-green-600">Partners</span>
             </Link>
           </div>
@@ -47,6 +64,11 @@ const MainLayout = ({ children }) => {
               {/* Navbar menu content here */}
               <Navbar></Navbar>
             </div>
+          </div>
+          <div onClick={handleMood} className="text-2xl font-bold mx-6">
+            {
+              mode === "light"? <BsSun></BsSun>:<BsMoon></BsMoon>
+            }
           </div>
           {/* dropdown  */}
             {
@@ -79,7 +101,14 @@ const MainLayout = ({ children }) => {
                 </div>
                 <hr />
                 <button
-                  onClick={logout}
+                  onClick={() => {
+                    logout()
+                    .then(() => {
+                      toast.success("Successfully logout");
+                    }).catch(err => {
+                      toast.err(err.message)
+                    })
+                  }}
                   className="btn btn-sm mt-4 font-bold cursor-pointer"
                 >
                   Log out
@@ -97,7 +126,7 @@ const MainLayout = ({ children }) => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <div className="menu mt-24 p-4 w-80 min-h-full bg-purple-600 text-white">
+        <div className="menu mt-28 z-50 p-4 w-80 min-h-full bg-purple-600 text-white">
           {/* Sidebar content here */}
           <Sidebar></Sidebar>
         </div>

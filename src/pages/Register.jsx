@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useMyContext from "../hooks/useMyContext";
-import toast, { Toaster, ToastBar } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const Register = () => {
+  const navigate = useNavigate();
   const { createUser, updateUser, user } = useMyContext();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
@@ -14,21 +15,23 @@ const Register = () => {
     const password = form.password.value;
     console.log(name, photo, email, password);
 
-    createUser(email, password)
+    await createUser(email, password)
       .then((res) => {
         if (res.user) {
           toast.success("Successfully register!");
+          
         }
         console.log(res.user);
       })
       .catch((err) => {
-        toast.error(err.message)
+        toast.error(err.message);
         console.log(err);
       });
     console.log(user);
     // update user
-    updateUser(name, photo)
-      .then((res) => console.log(res))
+   await updateUser(name, photo)
+      .then((res) => console.log(res));
+      navigate("/")
       .catch((err) => {
         console.log(err);
       });
@@ -118,18 +121,7 @@ const Register = () => {
             </form>
           </div>
         </div>
-      </div>
-      <Toaster>
-  {(t) => (
-    <ToastBar
-      toast={t}
-      style={{
-        ...t.style,
-        animation: t.visible ? 'custom-enter 1s ease' : 'custom-exit 1s ease',
-      }}
-    />
-  )}
-</Toaster>;
+      </div>      
     </div>
   );
 };
