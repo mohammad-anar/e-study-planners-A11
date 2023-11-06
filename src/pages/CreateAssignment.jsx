@@ -7,7 +7,7 @@ const CreateAssignment = () => {
     
     const handleCreate = (data) => {
         const assignment = {...data}
-        axios.post("http://localhost:5000/api/v1/assignments",{assignment})
+        axios.post("http://localhost:5000/api/v1/assignments",assignment)
         .then(res => {
             console.log(res.data);
             if(res.data.insertedId){

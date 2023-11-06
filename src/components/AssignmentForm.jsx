@@ -1,32 +1,37 @@
-import PropTypes from 'prop-types';
-import useMyContext from '../hooks/useMyContext';
+import PropTypes from "prop-types";
+import useMyContext from "../hooks/useMyContext";
 
-const AssignmentForm = ({title, btnName, handleCreate}) => {
-    const {user} = useMyContext();
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const form = e.target;
-        const title = form.title.value;
-        const image = form.image.value;
-        const mark = form.mark.value;
-        const difficulity = form.difficulity.value;
-        const date = form.date.value;
-        const description = form.description.value;
-        const assignment = {
-            title,
-            image,
-            mark,
-            difficulity,
-            date,
-            description,
-            email:user?.email
-
-        }
-        handleCreate(assignment);
-    }
+const AssignmentForm = ({ title, btnName, handleCreate }) => {
+  const { user } = useMyContext();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const title = form.title.value;
+    const image = form.image.value;
+    const mark = form.mark.value;
+    const difficulity = form.difficulity.value;
+    const date = form.date.value;
+    const description = form.description.value;
+    const assignment = {
+      
+      title,
+      image,
+      description,
+      total_marks: mark,
+      difficulty_level: difficulity,
+      due_date: date,
+      email: user?.email,
+    };
+    console.log(assignment);
+    handleCreate(assignment);
+    
+  };
   return (
     <div className="relative flex flex-col bg-gray-200 dark:bg-gray-900 min-h-screen bg-clip-border  shadow-none">
-      <form onSubmit={handleSubmit} className="mt-8 mb-2 max-w-screen-lg px-16   mx-auto py-20 dark:bg-black bg-white rounded-lg">
+      <form
+        onSubmit={handleSubmit}
+        className="mt-8 mb-2 max-w-screen-lg px-16   mx-auto py-20 dark:bg-black bg-white rounded-lg"
+      >
         <div className="mb-4 flex flex-col gap-6">
           <h2 className="text-2xl md:text-5xl  text-purple-600 font-bold pb-6 text-center ">
             {title}
@@ -101,9 +106,8 @@ const AssignmentForm = ({title, btnName, handleCreate}) => {
           ></textarea>
         </div>
         <button
-        type="submit"
+          type="submit"
           className="mt-6 block w-full select-none rounded-lg bg-purple-600 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-purple-600/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-          
           data-ripple-light="true"
         >
           {btnName}
@@ -113,9 +117,9 @@ const AssignmentForm = ({title, btnName, handleCreate}) => {
   );
 };
 AssignmentForm.propTypes = {
-    title:PropTypes.string,
-    btnName: PropTypes.string,
-    handleCreate:PropTypes.func
-  }
+  title: PropTypes.string,
+  btnName: PropTypes.string,
+  handleCreate: PropTypes.func,
+};
 
 export default AssignmentForm;

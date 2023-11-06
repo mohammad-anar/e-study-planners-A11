@@ -8,6 +8,9 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AllAssignment from "../pages/AllAssignment";
 import CreateAssignment from "../pages/CreateAssignment";
+import Assignmentdetails from "../pages/Assignmentdetails";
+import axios from "axios";
+import SubmittedAssignment from "./SubmittedAssignment";
 
 const routes = createBrowserRouter([
     {
@@ -30,6 +33,15 @@ const routes = createBrowserRouter([
             {
                 path: "allassignment",
                 element: <AllAssignment></AllAssignment>
+            },
+            {
+                path: "assignments/:id",
+                element: <Assignmentdetails></Assignmentdetails>,
+                loader: ({params}) => axios.get(`http://localhost:5000/api/v1/assignments/${params.id}`)
+            },
+            {
+                path: "submittedassignment",
+                element: <SubmittedAssignment></SubmittedAssignment>
             },
             {
                 path: "createassignment",

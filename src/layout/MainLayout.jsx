@@ -25,7 +25,7 @@ const MainLayout = ({ children }) => {
   },[mode])
 
   return (
-    <div className="drawer">
+    <div className="drawer dark:bg-black">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col ">
        { user && <div className="bg-black  text-white p-1 py-3 px-[5%]">
