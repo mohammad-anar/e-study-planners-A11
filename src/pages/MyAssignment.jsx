@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxios from "../hooks/useAxios";
-import useMyContext from "../hooks/useMyContext";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../providers/AuthProvider";
 
 const MyAssignment = () => {
   const [submitedData, setSubmittedData] = useState({});
-  const { user } = useMyContext();
+  const { user } = useContext(AuthContext);
   const axios = useAxios();
   const getData = () => {
     return axios.get(`/submittedassignment?email=${user?.email}`);
@@ -31,7 +31,9 @@ const MyAssignment = () => {
     <div>
       <div>
         {isLoading ? (
-          <h2>Loading....</h2>
+          <div className="h-screen flex justify-center items-center">
+            <span className="loading loading-spinner text-purple-600"></span>
+          </div>
         ) : (
           <div className="dark:bg-black  px-[5%] lg:px-[10%] min-h-screen bg-gray-200">
             <h2 className="text-3xl md:text-5xl text-purple-600 text-center py-12 font-bold">
@@ -82,12 +84,41 @@ const MyAssignment = () => {
                       />
                       <div className="modal">
                         <div className="modal-box py-12 dark:bg-gray-600 flex flex-col">
-                          <div >
-                          <h2 className="font-bold mb-2 ps-2">Your submission:</h2>
-                          <textarea className="w-full p-4 resize-none outline-none overflow-auto bg-gray-200 rounded-xl"  rows={3} defaultValue={submitedData.pdfUrl}></textarea>
-                          {submitedData.getMarks && <h2><span className="font-bold">Goted marks:</span> <sapn className="bg-gray-200 p-1">{submitedData.getMarks}</sapn></h2>}
-                          {(submitedData.feedback) && <h2 className="mt-2"><span className="font-bold">Examiner&apos;s feedback:</span> <span className="bg-gray-200 p-1">{submitedData.feedback}</span></h2>}
-                          {(submitedData.status === "pending") && <button className="mt-2"><span className="font-bold">Status: </span> <span className="bg-gray-200 p-1">{submitedData.status}</span></button>}
+                          <div>
+                            <h2 className="font-bold mb-2 ps-2">
+                              Your submission:
+                            </h2>
+                            <textarea
+                              className="w-full p-4 resize-none outline-none overflow-auto bg-gray-200 rounded-xl"
+                              rows={3}
+                              defaultValue={submitedData.pdfUrl}
+                            ></textarea>
+                            {submitedData.getMarks && (
+                              <h2>
+                                <span className="font-bold">Goted marks:</span>{" "}
+                                <sapn className="bg-gray-200 p-1">
+                                  {submitedData.getMarks}
+                                </sapn>
+                              </h2>
+                            )}
+                            {submitedData.feedback && (
+                              <h2 className="mt-2">
+                                <span className="font-bold">
+                                  Examiner&apos;s feedback:
+                                </span>{" "}
+                                <span className="bg-gray-200 p-1">
+                                  {submitedData.feedback}
+                                </span>
+                              </h2>
+                            )}
+                            {submitedData.status === "pending" && (
+                              <button className="mt-2">
+                                <span className="font-bold">Status: </span>{" "}
+                                <span className="bg-gray-200 p-1">
+                                  {submitedData.status}
+                                </span>
+                              </button>
+                            )}
                           </div>
                         </div>
                         <label className="modal-backdrop" htmlFor="my_modal_7">

@@ -1,13 +1,14 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import useMyContext from "../hooks/useMyContext";
 import toast from "react-hot-toast";
 import useAxios from "../hooks/useAxios";
 import { FcGoogle } from "react-icons/fc";
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
   const location = useLocation();
   console.log(location);
-  const { user, signInUser, popUpSignIn } = useMyContext();
+  const { user, signInUser, popUpSignIn } = useContext(AuthContext)
   const axios = useAxios();
   const navigate = useNavigate();
 
@@ -24,7 +25,7 @@ const Login = () => {
         axios
           .post("/access-token", { email: user.email })
           .then(() => {
-            if(location.state){
+            if (location.state) {
               return navigate(location.state);
             }
             navigate("/");
@@ -37,23 +38,21 @@ const Login = () => {
   };
   const handlePopup = () => {
     popUpSignIn()
-    .then(res => {
-      console.log(res.user)
-      if(location.state){
-        return navigate(location.state);
-      }
-      axios
+      .then((res) => {
+        console.log(res.user);
+        toast.success("Successfully login!");
+        axios
           .post("/access-token", { email: user.email })
           .then(() => {
-            if(location.state){
+            if (location.state) {
               return navigate(location.state);
             }
             navigate("/");
           })
           .catch((err) => toast.error(err.message));
-    })
-    .catch(err => console.log(err))
-  }
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -96,7 +95,10 @@ const Login = () => {
                 <button className="btn bg-purple-800 text-white hover:bg-purple-600">
                   Login
                 </button>
-                <button onClick={handlePopup} className="btn border border-purple-600 w-1/2 mx-auto mt-2 text-3xl text-white hover:bg-purple-600">
+                <button
+                  onClick={handlePopup}
+                  className="btn border border-purple-600 w-1/2 mx-auto mt-2 text-3xl text-white hover:bg-purple-600"
+                >
                   <FcGoogle></FcGoogle>
                 </button>
                 <div className="text-center mt-2">
