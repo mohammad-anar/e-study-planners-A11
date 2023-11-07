@@ -30,7 +30,7 @@ const Sidebar = () => {
             }}
             to={"/allassignment"}
           >
-            All Assignment
+            Assignments
           </NavLink>
           <span className="text-lg">
             <BsCaretDownFill></BsCaretDownFill>
@@ -38,9 +38,9 @@ const Sidebar = () => {
         </label>
         <ul
           tabIndex={0}
-          className="dropdown-content -right-20 text-white z-[1000000] menu  shadow bg-purple-700 mt-6 rounded-lg "
+          className="dropdown-content  text-white z-[1000000] menu  shadow bg-purple-700 rounded-lg "
         >
-          <div className="flex items-center flex-col gap-4 h-full justify-center">
+          <div className="flex items-center w-[200px] py-4 flex-col gap-4 h-full justify-center">
             <NavLink
               className={({ isActive, isPending }) => {
                 return isPending

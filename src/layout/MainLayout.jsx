@@ -79,14 +79,14 @@ const MainLayout = ({ children }) => {
                   data-aos-delay="80"
                   data-aos-duration="900"
                   data-aos-easing="ease-in-out"
-                  className="w-[40px] lg:w-[50px] rounded-full"
+                  className="min-w-[40px] w-[40px] lg:w-[50px] rounded-full"
                   src={user?.photoURL}
                   alt="User"
                 />
               </label>
               <ul
                 tabIndex={0}
-                className="dropdown-content z-50 relative menu p-4 pt-12 shadow text-center bg-purple-600 -mr-8 mt-5 rounded-box w-80  text-white"
+                className="dropdown-content z-50 relative menu p-4 pt-12 shadow text-center bg-purple-600 -mr-3 md:-mr-6 xl:-mr-12 mt-3 rounded-box w-80  text-white"
               >
                 <div>
                   <img
