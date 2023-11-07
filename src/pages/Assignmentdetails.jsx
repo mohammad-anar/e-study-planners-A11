@@ -2,6 +2,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import useMyContext from "../hooks/useMyContext";
 import useAxios from "../hooks/useAxios";
+import toast from "react-hot-toast";
 const Assignmentdetails = () => {
   const axios = useAxios();
   const { user } = useMyContext();
@@ -24,15 +25,21 @@ const Assignmentdetails = () => {
     const assignment = {
       pdfUrl,
       text,
+      title,
+      total_marks,
       status: "pending",
       name: user?.email || "User",
     };
     axios.post("/submittedassignment", assignment)
     .then(res => {
         console.log(res.data);
+        if(res.data.insertedId) {
+            toast.success(" assignment submited successfully ")
+        }
     })
     .catch(err => {
         console.log(err.message);
+        toast.error(err.message)
     })
   };
   return (

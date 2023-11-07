@@ -54,7 +54,7 @@ const MainLayout = ({ children }) => {
               </svg>
             </label>
           </div>
-          <div className="flex-1 px-2 mx-2 text-3xl font-bold">
+          <div className="flex-1 px-2 mx-2 text-xl md:text-3xl font-bold">
             <Link >
               eStudy<span className="text-green-600">Partners</span>
             </Link>
@@ -65,7 +65,7 @@ const MainLayout = ({ children }) => {
               <Navbar></Navbar>
             </div>
           </div>
-          <div onClick={handleMood} className="text-2xl font-bold mx-6">
+          <div onClick={handleMood} className="text-lg lg:text-2xl p-1 border rounded-full border-white font-bold mx-6">
             {
               mode === "light"? <BsSun></BsSun>:<BsMoon></BsMoon>
             }
@@ -79,7 +79,7 @@ const MainLayout = ({ children }) => {
                   data-aos-delay="80"
                   data-aos-duration="900"
                   data-aos-easing="ease-in-out"
-                  className="w-[40px] rounded-full"
+                  className="w-[40px] lg:w-[50px] rounded-full"
                   src={user?.photoURL}
                   alt="User"
                 />
@@ -90,7 +90,7 @@ const MainLayout = ({ children }) => {
               >
                 <div>
                   <img
-                    className="w-[60px] rounded-full block mx-auto"
+                    className="w-[80px] lg:w-[90px]  rounded-full block mx-auto"
                     src={user?.photoURL}
                     alt="User"
                   />

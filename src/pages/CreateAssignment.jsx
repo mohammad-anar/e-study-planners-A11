@@ -17,7 +17,6 @@ const CreateAssignment = () => {
         .catch(err => {
             console.log(err);
         })
-        
     }
   return (
     <>
