@@ -3,45 +3,57 @@ import useAxios from "../hooks/useAxios";
 import { Spinner } from "@material-tailwind/react";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import useMyContext from "../hooks/useMyContext";
 
 const SubmittedAssignment = () => {
+  const { user } = useMyContext();
+  console.log(user?.email);
   const [submitedData, setSubmittedData] = useState({});
   const [myId, setMyId] = useState(null);
   const [marks, setMarks] = useState(0);
   const axios = useAxios();
-  const getData = async () => {
-    const result = await axios.post(`/submittedassignment?status=pending`);
-    return result;
-  };
-  const { data, isLoading } = useQuery({
-    queryKey: ["todos"],
-    queryFn: getData,
-  });
-  const assignments = data?.data;
-// submit func 
+    const getData = async () => {
+      const result = await axios.post(
+        `/submittedassignment?status=pending&email=${user.email}`
+      );
+      return result;
+    };
+    const { data, isLoading } = useQuery({
+      queryKey: ["assignments"],
+      queryFn: getData,
+    });
+    const assignments = data?.data;
+    console.log(assignments);
+  // submit func
+//   useEffect(() => {
+//     fetch(`http://localhost:5000/api/v1/submittedassignment?status=pending&email=${user?.email}`)
+//     .then(res => res.json())
+//     .then(data => setAssignments(data))
+//   }, [axios, user?.email]);
   const handleClick = (e) => {
     e.preventDefault();
     const form = e.target;
     const getMarks = form.getMark.value;
     const feedback = form.feedback.value;
     const body = {
-        getMarks,
-        feedback
-    }
+      getMarks,
+      feedback,
+    };
     console.log(body);
-    axios.put(`/submittedassignment/${myId}`, body)
-    .then(res => {
+    axios
+      .put(`/submittedassignment/${myId}`, body)
+      .then((res) => {
         console.log(res.data);
-        if(res.data.modifiedCount){
-            toast.success("🔥 Assignment Completed!!")
+        if (res.data.modifiedCount) {
+          toast.success("🔥 Assignment Completed!!");
         }
-    })
-    .catch(err => {
+      })
+      .catch((err) => {
         console.log(err.message);
-        toast.error( "🚫",err.message)
-    })
+        toast.error("🚫", err.message);
+      });
   };
-//   give mark func 
+  //   give mark func
   const handleGiveMark = (id) => {
     axios
       .get(`/submittedassignment/${id}`)
@@ -55,7 +67,7 @@ const SubmittedAssignment = () => {
   };
   return (
     <>
-      {isLoading ? (
+      {isLoading  ? (
         <div className="flex text-lg text-purple-700 items-center justify-center min-h-screen">
           <Spinner className="w-8 h-8 mr-2" color="purple" />{" "}
           <h2>Loading....</h2>
@@ -82,7 +94,11 @@ const SubmittedAssignment = () => {
                   </div>
                   <div className="p-6 pt-0 flex-1 flex items-center justify-between">
                     <button
-                      onClick={() => {handleGiveMark(crd._id); setMyId(crd._id); setMarks(crd.total_marks)}}
+                      onClick={() => {
+                        handleGiveMark(crd._id);
+                        setMyId(crd._id);
+                        setMarks(crd.total_marks);
+                      }}
                       id="give-mark"
                       className=" select-none rounded-lg bg-purple-600 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-purple-6bg-purple-600/20 transition-all hover:shadow-lg hover:shadow-purple-6bg-purple-600/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                       type="button"
@@ -101,7 +117,7 @@ const SubmittedAssignment = () => {
                     />
                     <div className="modal">
                       <div className="modal-box px-12 py-12 min-h-[380px] dark:bg-gray-600 flex flex-col">
-                        <form  onSubmit={handleClick}>
+                        <form onSubmit={handleClick}>
                           <h2 className="mb-6 text-2xl font-bold text-purple-600">
                             Check and feedback
                           </h2>
@@ -145,7 +161,7 @@ const SubmittedAssignment = () => {
                             rows="2"
                           ></textarea>
                           <button
-                            type="submit"                           
+                            type="submit"
                             className="btn btn-active border-none text-white hover:bg-purple-400 mt-4 bg-purple-600"
                           >
                             Submit

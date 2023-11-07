@@ -2,10 +2,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import useMyContext from "../hooks/useMyContext";
 import toast from "react-hot-toast";
+import useAxios from "../hooks/useAxios";
 
 
 
 const Login = () => {  
+  const {user} = useMyContext();
+  const axios = useAxios();
 const navigate = useNavigate();
 const {signInUser} = useMyContext();
 
@@ -20,7 +23,10 @@ const handleSubmit = (e) => {
   .then(res => {
     console.log(res.user);
       toast.success("Successfully login!");
-      navigate("/")
+      axios.post("/access-token", {email : user.email}).then(() => {
+        navigate("/")
+      }).catch(err => toast.success(err.message))
+      
     
   })
   .catch(err => {
