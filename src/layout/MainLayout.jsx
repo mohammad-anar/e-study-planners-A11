@@ -59,13 +59,13 @@ const MainLayout = ({ children }) => {
               eStudy<span className="text-green-600">Partners</span>
             </Link>
           </div>
-          <div className="flex-1  hidden lg:block">
-            <div className="flex flex-wrap items-center gap-2 text-md font-semibold mr-12">
+          <div className="flex-2  hidden lg:block">
+            <div className="flex items-center gap-4 text-sm mr-12">
               {/* Navbar menu content here */}
               <Navbar></Navbar>
             </div>
           </div>
-          <div onClick={handleMood} className="text-lg lg:text-2xl p-1 border rounded-full border-white font-bold mx-6">
+          <div onClick={handleMood} className="text-lg lg:text-xl  border-white font-bold mx-6">
             {
               mode === "light"? <BsSun></BsSun>:<BsMoon></BsMoon>
             }
@@ -126,7 +126,7 @@ const MainLayout = ({ children }) => {
           aria-label="close sidebar"
           className="drawer-overlay"
         ></label>
-        <div className="menu mt-28 z-50 p-4 w-80 min-h-full bg-purple-600 text-white">
+        <div className="menu mt-28 z-[100000000] flex flex-col items-center justify-start p-4 w-80 min-h-screen bg-purple-600 text-white">
           {/* Sidebar content here */}
           <Sidebar></Sidebar>
         </div>

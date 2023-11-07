@@ -8,9 +8,9 @@ const AutoplaySlider = withAutoplay(AwesomeSlider);
 const Home = () => {
   return (
     <>
-      <div className="z-40 hidden lg:block" >
+      <div className="z-0 " >
         <AutoplaySlider
-        className="h-screen hidden md:block"
+        className="h-screen hidden z-0 md:block"
           play={true}
           cancelOnInteraction={false} // should stop playing on user interaction
           interval={6000}

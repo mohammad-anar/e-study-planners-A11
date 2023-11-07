@@ -1,22 +1,123 @@
+import { BsCaretDownFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
-    return (
-        <>
-            <NavLink className={({isActive, isPending}) => {
-                return isPending? "Pending": isActive? "underline text-red btn  bg-red-600 border-none text-white hover:bg-red-400": "btn  btn-ghost "
-              }} to={"/"}>Home</NavLink>
-              <NavLink className={({isActive, isPending}) => {
-                return isPending? "Pending": isActive? "underline text-red btn  bg-red-600 border-none text-white hover:bg-red-400": "btn  btn-ghost "
-              }}  to={"/allassignment"}>All Assignment</NavLink>
-              <NavLink className={({isActive, isPending}) => {
-                return isPending? "Pending": isActive? "underline text-red btn  bg-red-600 border-none text-white hover:bg-red-400": "btn  btn-ghost "
-              }}  to={"/about"}>About</NavLink>
-              <NavLink className={({isActive, isPending}) => {
-                return isPending? "Pending": isActive? "underline text-red btn  bg-red-600 border-none text-white hover:bg-red-400": "btn  btn-ghost "
-              }}  to={"/contact"}>Contact</NavLink>
-        </>
-    );
+  return (
+    <>
+      <NavLink
+        className={({ isActive, isPending }) => {
+          return isPending
+            ? "Pending"
+            : isActive
+            ? "underline btn hover:bg-black w-full hover:text-purple-600 border-none text-purple-600"
+            : "btn btn-ghost w-full";
+        }}
+        to={"/"}
+      >
+        Home
+      </NavLink>
+
+      {/* dropdown  */}
+      <div className="dropdown dropdown-hover">
+        <label tabIndex={0} className="flex items-center">
+          <NavLink
+            className={({ isActive, isPending }) => {
+              return isPending
+                ? "Pending"
+                : isActive
+                ? "underline btn hover:bg-black w-full hover:text-purple-600 border-none text-purple-600"
+                : "btn btn-ghost w-full";
+            }}
+            to={"/allassignment"}
+          >
+            All Assignment
+          </NavLink>
+          <span className="text-lg">
+            <BsCaretDownFill></BsCaretDownFill>
+          </span>
+        </label>
+        <ul
+          tabIndex={0}
+          className="dropdown-content -right-20 text-white z-[1000000] menu  shadow bg-purple-700 mt-6 rounded-lg "
+        >
+          <div className="flex items-center flex-col gap-4 h-full justify-center">
+            <NavLink
+              className={({ isActive, isPending }) => {
+                return isPending
+                  ? "Pending"
+                  : isActive
+                  ? "underline btn hover:bg-black w-full hover:text-purple-600 border-none text-purple-600"
+                  : "btn btn-ghost w-full";
+              }}
+              to={"/allassignment"}
+            >
+              All Assignment
+            </NavLink>
+            <NavLink
+              className={({ isActive, isPending }) => {
+                return isPending
+                  ? "Pending"
+                  : isActive
+                  ? "underline btn hover:bg-black w-full hover:text-purple-600 border-none text-purple-600"
+                  : "btn btn-ghost w-full";
+              }}
+              to={"/myassignment"}
+            >
+              MyAssignment
+            </NavLink>
+            <NavLink
+              className={({ isActive, isPending }) => {
+                return isPending
+                  ? "Pending"
+                  : isActive
+                  ? "underline btn hover:bg-black w-full hover:text-purple-600 border-none text-purple-600"
+                  : "btn btn-ghost w-full";
+              }}
+              to={"/createassignment"}
+            >
+              Create Assignment
+            </NavLink>
+            <NavLink
+              className={({ isActive, isPending }) => {
+                return isPending
+                  ? "Pending"
+                  : isActive
+                  ? "underline btn hover:bg-black w-full hover:text-purple-600 border-none text-purple-600"
+                  : "btn btn-ghost w-full";
+              }}
+              to={"/submittedassignment"}
+            >
+              Submitted Assignment
+            </NavLink>
+          </div>
+        </ul>
+      </div>
+      <NavLink
+        className={({ isActive, isPending }) => {
+          return isPending
+            ? "Pending"
+            : isActive
+            ? "underline btn hover:bg-black w-full hover:text-purple-600 border-none text-purple-600"
+            : "btn btn-ghost w-full";
+        }}
+        to={"/about"}
+      >
+        About
+      </NavLink>
+      <NavLink
+        className={({ isActive, isPending }) => {
+          return isPending
+            ? "Pending"
+            : isActive
+            ? "underline btn hover:bg-black w-full hover:text-purple-600 border-none text-purple-600"
+            : "btn btn-ghost w-full";
+        }}
+        to={"/contact"}
+      >
+        Contact
+      </NavLink>
+    </>
+  );
 };
 
 export default Sidebar;

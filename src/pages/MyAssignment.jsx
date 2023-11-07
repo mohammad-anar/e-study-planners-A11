@@ -33,7 +33,7 @@ const MyAssignment = () => {
         {isLoading ? (
           <h2>Loading....</h2>
         ) : (
-          <div className="dark:bg-black  px-[5%] lg:px-[10%] bg-gray-200">
+          <div className="dark:bg-black  px-[5%] lg:px-[10%] min-h-screen bg-gray-200">
             <h2 className="text-3xl md:text-5xl text-purple-600 text-center py-12 font-bold">
               My Assignments
             </h2>

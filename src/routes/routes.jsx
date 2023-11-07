@@ -13,60 +13,67 @@ import axios from "axios";
 import SubmittedAssignment from "../pages/SubmittedAssignment";
 import UpdateAssignment from "../pages/UpdateAssignment";
 import MyAssignment from "../pages/MyAssignment";
+import PrivateRoute from "./PrivateRoute";
 
 const routes = createBrowserRouter([
-    {
-        path: "/",
-        element:<App></App>,
-        errorElement: <Error></Error>,
-        children: [
-            {
-                index: true,
-                element: <Home></Home>
-            },
-            {
-                path: "about",
-                element: <About></About>
-            },
-            {
-                path: "contact",
-                element: <Contact></Contact>
-            },
-            {
-                path: "allassignment",
-                element: <AllAssignment></AllAssignment>
-            },
-            {
-                path: "assignments/:id",
-                element: <Assignmentdetails></Assignmentdetails>,
-                loader: ({params}) => axios.get(`http://localhost:5000/api/v1/assignments/${params.id}`)
-            },
-            {
-                path: "submittedassignment",
-                element: <SubmittedAssignment></SubmittedAssignment>,
-            },
-            {
-                path: "myassignment",
-                element: <MyAssignment></MyAssignment>,
-            },
-            {
-                path: "updateassignment/:id",
-                element: <UpdateAssignment></UpdateAssignment>,
-                loader: ({params}) => axios.get(`http://localhost:5000/api/v1/assignments/${params.id}`)
-            },
-            {
-                path: "createassignment",
-                element: <CreateAssignment></CreateAssignment>
-            }
-        ]
-    },
-    {
-        path: "/login",
-        element: <Login></Login>
-    },
-    {
-        path: "/register",
-        element: <Register></Register>
-    }
+  {
+    path: "/",
+    element: <App></App>,
+    errorElement: <Error></Error>,
+    children: [
+      {
+        index: true,
+        element: <Home></Home>,
+      },
+      {
+        path: "about",
+        element: <About></About>,
+      },
+      {
+        path: "contact",
+        element: <Contact></Contact>,
+      },
+      {
+        path: "allassignment",
+        element: <AllAssignment></AllAssignment>,
+      },
+      {
+        path: "assignments/:id",
+        element: <PrivateRoute><Assignmentdetails></Assignmentdetails></PrivateRoute>,
+        loader: ({ params }) =>
+          axios.get(`http://localhost:5000/api/v1/assignments/${params.id}`),
+      },
+      {
+        path: "submittedassignment",
+        element: <PrivateRoute><SubmittedAssignment></SubmittedAssignment></PrivateRoute>,
+      },
+      {
+        path: "myassignment",
+        element: (
+          <PrivateRoute>
+            <MyAssignment></MyAssignment>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "updateassignment/:id",
+        element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
+        loader: ({ params }) =>
+          axios.get(`http://localhost:5000/api/v1/assignments/${params.id}`),
+      },
+      {
+        path: "createassignment",
+        element: <PrivateRoute><CreateAssignment></CreateAssignment></PrivateRoute>,
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: <Login></Login>,
+  },
+  {
+    path: "/register",
+    element: <Register></Register>,
+  },
 ]);
 export default routes;
