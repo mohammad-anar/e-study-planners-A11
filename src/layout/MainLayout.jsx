@@ -127,7 +127,7 @@ const MainLayout = ({ children }) => {
           className="drawer-overlay"
         ></label>
         <div className="menu mt-28 z-[100000000] flex flex-col items-center justify-start p-4 w-80 min-h-screen bg-purple-600 text-white">
-          {/* Sidebar content here */}
+          {/* Sidebar here */}
           <Sidebar></Sidebar>
         </div>
       </div>
