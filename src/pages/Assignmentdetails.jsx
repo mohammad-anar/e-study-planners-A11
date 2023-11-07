@@ -30,7 +30,7 @@ const Assignmentdetails = () => {
       status: "pending",
       name: user?.email || "User",
     };
-    axios.post("/submittedassignment", assignment)
+    axios.post(`/submittedassignment?email=${user?.email}`, assignment)
     .then(res => {
         console.log(res.data);
         if(res.data.insertedId) {

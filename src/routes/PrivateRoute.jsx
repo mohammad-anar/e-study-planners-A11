@@ -5,11 +5,16 @@ import useMyContext from "../hooks/useMyContext";
 const PrivateRoute = ({ children }) => {
     const location = useLocation();
     console.log(location);
-  const { user } = useMyContext();
+  const { user, loading } = useMyContext();
+
+  if(loading) {
+    return <div className="h-screen flex items-center justify-center"><span className="loading text-5xl loading-spinner text-purple-600"></span></div>
+  }
   if (!user?.email) {
     return <Navigate state={location?.pathname} to="/login"></Navigate>;
   }
-  return children;
+  
+      return children;
 };
 PrivateRoute.propTypes = {
     children: PropTypes.node

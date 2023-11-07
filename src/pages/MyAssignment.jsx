@@ -8,7 +8,7 @@ const MyAssignment = () => {
   const { user } = useMyContext();
   const axios = useAxios();
   const getData = () => {
-    return axios.get(`/submittedassignment?email=${user.email}`);
+    return axios.get(`/submittedassignment?email=${user?.email}`);
   };
   const { data: assignments, isLoading } = useQuery({
     queryKey: ["assignment"],
@@ -18,7 +18,7 @@ const MyAssignment = () => {
   const handleSeeDeails = (id) => {
     console.log(id, "form id");
     axios
-      .get(`/submittedassignment/${id}`)
+      .get(`/submittedassignment/${id}?email=${user.email}`)
       .then((res) => {
         console.log(res.data);
         setSubmittedData(res.data);

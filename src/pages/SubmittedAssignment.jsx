@@ -14,7 +14,7 @@ const SubmittedAssignment = () => {
   const axios = useAxios();
     const getData = async () => {
       const result = await axios.post(
-        `/submittedassignment?status=pending&email=${user.email}`
+        `/submittedassignment?status=pending&email=${user?.email}`
       );
       return result;
     };
@@ -41,7 +41,7 @@ const SubmittedAssignment = () => {
     };
     console.log(body);
     axios
-      .put(`/submittedassignment/${myId}`, body)
+      .put(`/submittedassignment/${myId}?email=${user?.email}`, body)
       .then((res) => {
         console.log(res.data);
         if (res.data.modifiedCount) {
@@ -56,7 +56,7 @@ const SubmittedAssignment = () => {
   //   give mark func
   const handleGiveMark = (id) => {
     axios
-      .get(`/submittedassignment/${id}`)
+      .get(`/submittedassignment/${id}?email=${user?.email}`)
       .then((res) => {
         console.log(res.data);
         setSubmittedData(res.data);

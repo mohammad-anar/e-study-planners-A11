@@ -29,7 +29,7 @@ const Login = () => {
             }
             navigate("/");
           })
-          .catch((err) => toast.success(err.message));
+          .catch((err) => toast.error(err.message));
       })
       .catch((err) => {
         toast.error(err.message);
@@ -42,7 +42,15 @@ const Login = () => {
       if(location.state){
         return navigate(location.state);
       }
-      navigate("/");
+      axios
+          .post("/access-token", { email: user.email })
+          .then(() => {
+            if(location.state){
+              return navigate(location.state);
+            }
+            navigate("/");
+          })
+          .catch((err) => toast.error(err.message));
     })
     .catch(err => console.log(err))
   }
