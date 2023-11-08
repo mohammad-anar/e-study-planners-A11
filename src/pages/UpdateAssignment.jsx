@@ -35,6 +35,7 @@ const UpdateAssignment = () => {
       due_date,
       description,
       difficulty_level,
+      email:user.email
     };
     if(email) {
       if (email !== user.email) {
