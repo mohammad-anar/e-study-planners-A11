@@ -30,7 +30,9 @@ const Home = () => {
       {/* faq section  */}
       <section>
         <div className="mt-20 px-[10%]">
-          <h2 className="text-5xl font-bold border-b-2 border-purple-600 w-[200px] text-center mx-auto pb-4 text-purple-600">FA&Q</h2>
+          <h2 data-aos="flip-right"
+                data-aos-easing="linear"
+                data-aos-duration="500" className="text-5xl font-bold border-b-2 border-purple-600 w-[200px] text-center mx-auto pb-4 text-purple-600">FA&Q</h2>
         </div>
         <Faq></Faq>
       </section>

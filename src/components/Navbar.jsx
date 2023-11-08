@@ -5,6 +5,9 @@ const Navbar = () => {
   return (
     <>
       <NavLink
+        data-aos="zoom out"
+        data-aos-easing="linear"
+        data-aos-duration="600"
         className={({ isActive, isPending }) => {
           return isPending
             ? "Pending"
@@ -18,9 +21,13 @@ const Navbar = () => {
       </NavLink>
 
       {/* dropdown  */}
-      <div className="dropdown dropdown-hover">
-        <label tabIndex={0} className="flex items-center">
-          Assignments{" "}
+      <div
+        className="dropdown dropdown-hover"
+      >
+        <label data-aos="zoom-out"
+            data-aos-easing="linear"
+            data-aos-duration="600"  tabIndex={0} className="flex items-center">
+          Assignments
           <span className="text-lg">
             <BsCaretDownFill></BsCaretDownFill>
           </span>
@@ -31,6 +38,9 @@ const Navbar = () => {
         >
           <div className="flex items-center gap-4 h-full justify-center">
             <NavLink
+              data-aos="zoom-out"
+              data-aos-easing="linear"
+              data-aos-duration="600"
               className={({ isActive, isPending }) => {
                 return isPending
                   ? "Pending"
@@ -43,6 +53,9 @@ const Navbar = () => {
               All Assignment
             </NavLink>
             <NavLink
+              data-aos="zoom-out"
+              data-aos-easing="linear"
+              data-aos-duration="600"
               className={({ isActive, isPending }) => {
                 return isPending
                   ? "Pending"
@@ -55,6 +68,9 @@ const Navbar = () => {
               MyAssignment
             </NavLink>
             <NavLink
+              data-aos="zoom-out"
+              data-aos-easing="linear"
+              data-aos-duration="600"
               className={({ isActive, isPending }) => {
                 return isPending
                   ? "Pending"
@@ -67,6 +83,9 @@ const Navbar = () => {
               Create Assignment
             </NavLink>
             <NavLink
+              data-aos="zoom-out"
+              data-aos-easing="linear"
+              data-aos-duration="600"
               className={({ isActive, isPending }) => {
                 return isPending
                   ? "Pending"
@@ -82,6 +101,9 @@ const Navbar = () => {
         </ul>
       </div>
       <NavLink
+        data-aos="zoom-out"
+        data-aos-easing="linear"
+        data-aos-duration="600"
         className={({ isActive, isPending }) => {
           return isPending
             ? "Pending"
@@ -94,6 +116,9 @@ const Navbar = () => {
         About
       </NavLink>
       <NavLink
+        data-aos="zoom-out"
+        data-aos-easing="linear"
+        data-aos-duration="600"
         className={({ isActive, isPending }) => {
           return isPending
             ? "Pending"

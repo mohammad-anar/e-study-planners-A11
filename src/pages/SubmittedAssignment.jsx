@@ -74,12 +74,16 @@ const SubmittedAssignment = () => {
         </div>
       ) : (
         <div className="bg-gray-200 h-screen dark:bg-black px-[5%] lg:px-[10%]">
-          <h1 className="text-3xl md:text-5xl  font-bold text-purple-600 my-12 text-center">
+          <h1 data-aos="flip-right"
+            data-aos-easing="linear"
+            data-aos-duration="600"  className="text-3xl md:text-5xl  font-bold text-purple-600 my-12 text-center">
             Submitted assignments
           </h1>
           <div className="grid grid-cols-1 bg-gray-200 dark:bg-black md:grid-cols-2 lg:grid-cols-3 gap-6">
             {assignments?.map((crd) => (
-              <div key={crd._id}>
+              <div data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-duration="800"  key={crd._id}>
                 <div className="relative flex min-h-[220px] flex-col text-gray-700 bg-white dark:bg-gray-800 shadow-md rounded-md bg-clip-border">
                   <div className="p-6 pb-4 flex-1 felx flex-col h-full">
                     <h5 className="block flex-1 mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-purple-600 dark:text-gray-100">

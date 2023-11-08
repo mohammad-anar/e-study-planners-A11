@@ -62,7 +62,7 @@ const MainLayout = ({ children }) => {
           <div
             data-aos="fade-down"
             data-aos-easing="linear"
-            data-aos-duration="1500"
+            data-aos-duration="800"
             className="flex-1 px-2 mx-2 text-xl md:text-3xl font-bold"
           >
             <Link>
@@ -75,7 +75,9 @@ const MainLayout = ({ children }) => {
               <Navbar></Navbar>
             </div>
           </div>
-          <div
+          <div data-aos="zoom-in"
+            data-aos-easing="linear"
+            data-aos-duration="600" 
             onClick={handleMood}
             className="text-lg lg:text-xl  border-white font-bold mx-6"
           >

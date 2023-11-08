@@ -36,12 +36,19 @@ const MyAssignment = () => {
           </div>
         ) : (
           <div className="dark:bg-black  px-[5%] lg:px-[10%] min-h-screen bg-gray-200">
-            <h2 className="text-3xl md:text-5xl text-purple-600 text-center py-12 font-bold">
+            <h2
+              data-aos="flip-right"
+              data-aos-easing="linear"
+              data-aos-duration="800"
+              className="text-3xl md:text-5xl text-purple-600 text-center py-12 font-bold"
+            >
               My Assignments
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {assignments?.data.map((assignment) => (
-                <div key={assignment._id}>
+                <div data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-duration="600"  key={assignment._id}>
                   <div className="relative flex min-h-[220px] flex-col text-gray-700 bg-white dark:bg-gray-800 shadow-md rounded-md bg-clip-border">
                     <div className="p-6 pb-4 flex-1 felx flex-col h-full">
                       <h5 className="block flex-1 mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-purple-600 dark:text-gray-100">
