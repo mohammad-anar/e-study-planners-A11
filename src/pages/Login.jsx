@@ -4,11 +4,12 @@ import useAxios from "../hooks/useAxios";
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import { BsGithub } from "react-icons/bs";
 
 const Login = () => {
   const location = useLocation();
   console.log(location);
-  const { user, signInUser, popUpSignIn } = useContext(AuthContext)
+  const { user, signInUser, popUpSignIn, githubSignin } = useContext(AuthContext)
   const axios = useAxios();
   const navigate = useNavigate();
 
@@ -38,6 +39,23 @@ const Login = () => {
   };
   const handlePopup = () => {
     popUpSignIn()
+      .then((res) => {
+        console.log(res.user);
+        toast.success("Successfully login!");
+        axios
+          .post("/access-token", { email: user.email })
+          .then(() => {
+            if (location.state) {
+              return navigate(location.state);
+            }
+            navigate("/");
+          })
+          .catch((err) => toast.error(err.message));
+      })
+      .catch((err) => console.log(err));
+  };
+  const handlegithub = () => {
+    githubSignin()
       .then((res) => {
         console.log(res.user);
         toast.success("Successfully login!");
@@ -97,9 +115,15 @@ const Login = () => {
                 </button>
                 <button
                   onClick={handlePopup}
-                  className="btn border border-purple-600 w-1/2 mx-auto mt-2 text-3xl text-white hover:bg-purple-600"
+                  className="btn border border-purple-600 w-full mx-auto mt-2 text-3xl text-white hover:bg-purple-600"
                 >
                   <FcGoogle></FcGoogle>
+                </button>
+                <button
+                  onClick={handlegithub}
+                  className="btn border border-purple-600 w-full mx-auto mt-2 text-3xl text-purple-600 hover:text-white hover:bg-purple-600"
+                >
+                  <BsGithub></BsGithub>
                 </button>
                 <div className="text-center mt-2">
                   <p className="text-purple-600 ">

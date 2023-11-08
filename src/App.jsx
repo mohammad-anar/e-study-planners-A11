@@ -1,5 +1,12 @@
 import { Outlet } from "react-router-dom"
 import MainLayout from "./layout/MainLayout"
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+AOS.init({
+  useClassNames: true,
+  initClassName: false,
+  animatedClassName: 'animated',
+});
 
 
 function App() {

@@ -1,10 +1,14 @@
+
+
+import "react-datepicker/dist/react-datepicker.css";
+
 import axios from "axios";
 import AssignmentForm from "../components/AssignmentForm";
 import toast from "react-hot-toast";
 
 
 const CreateAssignment = () => {
-    
+
     const handleCreate = (data) => {
         const assignment = {...data}
         axios.post("https://dist-three-blue.vercel.app/api/v1/assignments",assignment)

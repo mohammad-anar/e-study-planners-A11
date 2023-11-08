@@ -1,14 +1,17 @@
 
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import PropTypes from "prop-types";
 import { createContext } from "react";
 import auth from "../firebase/firebase.conf";
 import { useState } from "react";
 import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 export const AuthContext = createContext(null);
 
 const googleProvider = new GoogleAuthProvider();
+const githubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setuUser] = useState(null);
@@ -37,6 +40,10 @@ const AuthProvider = ({ children }) => {
     setLoading(true)
     return signInWithPopup(auth, googleProvider)
   }
+  const githubSignin = () => {
+    setLoading(true)
+    return signInWithPopup(auth, githubProvider)
+  }
   useEffect( () => {
     const unsubscrive = onAuthStateChanged(auth, (currentUSer) => {
       setuUser(currentUSer)
@@ -55,10 +62,16 @@ const AuthProvider = ({ children }) => {
     signInUser,
     updateUser,
     createUser,
-    popUpSignIn
+    popUpSignIn,
+    githubSignin
   };
+  AOS.init({
+    useClassNames: true,
+    initClassName: false,
+    animatedClassName: 'animated',
+  });
   return (
-    <AuthContext.Provider value={authValue}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={authValue}>{children} </AuthContext.Provider>
   );
 };
 AuthProvider.propTypes = {

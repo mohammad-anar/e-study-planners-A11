@@ -3,7 +3,11 @@ import useMyContext from "../hooks/useMyContext";
 import toast from "react-hot-toast";
 import useAxios from "../hooks/useAxios";
 
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+
 const UpdateAssignment = () => {
+  const [startDate, setStartDate] = useState(new Date());
   const axios = useAxios();
   const { user } = useMyContext();
   const { data: assignment } = useLoaderData();
@@ -27,7 +31,7 @@ const UpdateAssignment = () => {
     const total_marks = form.mark.value;
     const due_date = form.date.value;
     const description = form.description.value;
-    const difficulty_level = form.difficulity.value;
+    const difficulty_level = form.difficulty.value;
     const updateData = {
       title,
       image,
@@ -37,6 +41,7 @@ const UpdateAssignment = () => {
       difficulty_level,
       email:user.email
     };
+    console.log(updateData);
     if(email) {
       if (email !== user.email) {
         return toast.error(" Can't update another's assignment");
@@ -105,31 +110,27 @@ const UpdateAssignment = () => {
           </div>
           {/* input 4  */}
           <div className="relative h-11  w-[300px] md:w-[500px] lg:w-[700px]">
-            <input
-              name="difficulity"
-              defaultValue={difficulty_level}
-              type="text"
-              className="peer h-full w-full dark:text-white rounded-md border border-purple-600 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-purple-600 placeholder-shown:border-t-purple-600border-purple-600 focus:border-2 focus:border-purple-600 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-              required
-            />
+          <div className="border-b-purple-600 border dark:border-none dark:border flex  p-3 rounded-xl border-r-purple-600 border-l-purple-600">
+            <select defaultValue={difficulty_level} name="difficulty" id="difficulty">
+              <option value="essay">Essay</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+            </div>
             <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-purple-600 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-purple-600 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-purple-600 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-purple-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-purple-600 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-purple-600 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-purple-600 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-purple-500">
               Difficulity level
             </label>
           </div>
           {/* input 5  */}
-          <div className="relative h-11  w-[300px] md:w-[500px] lg:w-[700px]">
-            <input
-              name="date"
-              defaultValue={due_date}
-              type="date"
-              className="peer h-full w-full dark:text-white rounded-md border border-purple-600 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-purple-600 placeholder-shown:border-t-purple-600border-purple-600 focus:border-2 focus:border-purple-600 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-              required
-            />
-            <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-purple-600 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-purple-600 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-purple-600 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-purple-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-purple-600 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-purple-600 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-purple-600 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-purple-500">
-              date
+          <div className="relative h-11 dark:bordert-none w-[300px] md:w-[500px] lg:w-[700px]">
+          <div className="border-b-purple-600 border dark:border-none dark:border flex  p-3 rounded-xl border-r-purple-600 border-l-purple-600">
+          <DatePicker name="date" defaultValue={due_date} className="outline-none flex-1 bg-transparent dark:text-gray-200" selected={startDate} onChange={(date) => setStartDate(date)} />
+          <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-purple-600 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l  before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-purple-600 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-purple-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-purple-600 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-purple-600 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-purple-600 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-purple-500">
+              Select date
             </label>
           </div>
-          {/* input 1  */}
+          </div>
+          {/* input 6  */}
           <textarea
             placeholder="Enter descrioption"
             defaultValue={description}

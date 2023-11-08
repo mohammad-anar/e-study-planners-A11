@@ -68,12 +68,12 @@ const SubmittedAssignment = () => {
   return (
     <>
       {isLoading  ? (
-        <div className="flex text-lg text-purple-700 items-center justify-center min-h-screen">
+        <div className="flex text-lg dark:bg-dark h-screen text-purple-700 items-center justify-center min-h-screen">
           <Spinner className="w-8 h-8 mr-2" color="purple" />{" "}
           <h2>Loading....</h2>
         </div>
       ) : (
-        <div className="bg-gray-200 dark:bg-black px-[5%] lg:px-[10%]">
+        <div className="bg-gray-200 h-screen dark:bg-black px-[5%] lg:px-[10%]">
           <h1 className="text-3xl md:text-5xl  font-bold text-purple-600 my-12 text-center">
             Submitted assignments
           </h1>

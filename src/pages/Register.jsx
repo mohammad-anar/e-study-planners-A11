@@ -1,8 +1,15 @@
 import { Link, useNavigate } from "react-router-dom";
 import useMyContext from "../hooks/useMyContext";
 import toast from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
+import { BsGithub } from "react-icons/bs";
+import { useContext } from "react";
+import { AuthContext } from "../providers/AuthProvider";
+import useAxios from "../hooks/useAxios";
 
 const Register = () => {
+  const axios = useAxios();
+  const { popUpSignIn, githubSignin } = useContext(AuthContext)
   const navigate = useNavigate();
   const { createUser, updateUser, user } = useMyContext();
 
@@ -35,6 +42,40 @@ const Register = () => {
       .catch((err) => {
         console.log(err);
       });
+  };
+  const handlePopup = () => {
+    popUpSignIn()
+      .then((res) => {
+        console.log(res.user);
+        toast.success("Successfully login!");
+        axios
+          .post("/access-token", { email: user.email })
+          .then(() => {
+            if (location.state) {
+              return navigate(location.state);
+            }
+            navigate("/");
+          })
+          .catch((err) => toast.error(err.message));
+      })
+      .catch((err) => console.log(err));
+  };
+  const handlegithub = () => {
+    githubSignin()
+      .then((res) => {
+        console.log(res.user);
+        toast.success("Successfully login!");
+        axios
+          .post("/access-token", { email: user.email })
+          .then(() => {
+            if (location.state) {
+              return navigate(location.state);
+            }
+            navigate("/");
+          })
+          .catch((err) => toast.error(err.message));
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -105,6 +146,18 @@ const Register = () => {
                   className="btn bg-purple-800 text-white hover:bg-purple-600"
                 >
                   Sign Up
+                </button>
+                <button
+                  onClick={handlePopup}
+                  className="btn border border-purple-600 w-full mx-auto mt-2 text-3xl text-white hover:bg-purple-600"
+                >
+                  <FcGoogle></FcGoogle>
+                </button>
+                <button
+                  onClick={handlegithub}
+                  className="btn border border-purple-600 w-full mx-auto mt-2 text-3xl text-purple-600 hover:text-white hover:bg-purple-600"
+                >
+                  <BsGithub></BsGithub>
                 </button>
                 <div className="text-center mt-2">
                   <p className="text-purple-600 ">

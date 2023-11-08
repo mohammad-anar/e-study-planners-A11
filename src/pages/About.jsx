@@ -1,7 +1,7 @@
 
 const About = () => {
     return (
-        <div className="px-[2%] md:px-[3%] lg:px-[4%]">
+        <div className="px-[2%] md:px-[3%] lg:px-[4%] h-screen">
       <h1
         className="text-5xl my-12 font-bold text-center text-teal-600"
         data-aos="flip-right"

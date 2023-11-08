@@ -10,27 +10,32 @@ import { BsMoon, BsSun } from "react-icons/bs";
 
 const MainLayout = ({ children }) => {
   const [mode, setMode] = useState("light");
-  const {user, logout} = useMyContext();
+  const { user, logout } = useMyContext();
 
   const handleMood = () => {
-    if(mode === "light") {
-      setMode("dark")
-    }else{
-      setMode("light")
+    if (mode === "light") {
+      setMode("dark");
+    } else {
+      setMode("light");
     }
-  }
+  };
   useEffect(() => {
     const html = document.documentElement;
     html.classList = mode;
-  },[mode])
+  }, [mode]);
 
   return (
     <div className="drawer dark:bg-black">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col ">
-       { user && <div className="bg-black  text-white p-1 py-3 px-[5%]">
-          <h2 className="flex items-center justify-center gap-2"><TbMailHeart className="text-xl text-purple-700"></TbMailHeart>Email: {user.email}</h2>
-        </div>}
+        {user && (
+          <div className="bg-black  text-white p-1 py-3 px-[5%]">
+            <h2 className="flex items-center justify-center gap-2">
+              <TbMailHeart className="text-xl text-purple-700"></TbMailHeart>
+              Email: {user.email}
+            </h2>
+          </div>
+        )}
         {/* Navbar */}
         <div className="w-full navbar bg-purple-700 text-white px-[5%]">
           <div className="flex-none lg:hidden">
@@ -54,8 +59,13 @@ const MainLayout = ({ children }) => {
               </svg>
             </label>
           </div>
-          <div className="flex-1 px-2 mx-2 text-xl md:text-3xl font-bold">
-            <Link >
+          <div
+            data-aos="fade-down"
+            data-aos-easing="linear"
+            data-aos-duration="1500"
+            className="flex-1 px-2 mx-2 text-xl md:text-3xl font-bold"
+          >
+            <Link>
               eStudy<span className="text-green-600">Partners</span>
             </Link>
           </div>
@@ -65,14 +75,22 @@ const MainLayout = ({ children }) => {
               <Navbar></Navbar>
             </div>
           </div>
-          <div onClick={handleMood} className="text-lg lg:text-xl  border-white font-bold mx-6">
-            {
-              mode === "light"? <BsSun></BsSun>:<BsMoon></BsMoon>
-            }
+          <div
+            onClick={handleMood}
+            className="text-lg lg:text-xl  border-white font-bold mx-6"
+          >
+            {mode === "light" ? <BsSun></BsSun> : <BsMoon></BsMoon>}
           </div>
           {/* dropdown  */}
-            {
-                !user? <Link to={"/login"} className="text-sm font-medium ml-8 btn btn-sm text-white btn-success">Login</Link>: <div className="dropdown dropdown-end">
+          {!user ? (
+            <Link
+              to={"/login"}
+              className="text-sm font-medium ml-8 btn btn-sm text-white btn-success"
+            >
+              Login
+            </Link>
+          ) : (
+            <div className="dropdown dropdown-end">
               <label tabIndex={0} className="flex items-center">
                 <img
                   data-aos="flip-left"
@@ -103,11 +121,12 @@ const MainLayout = ({ children }) => {
                 <button
                   onClick={() => {
                     logout()
-                    .then(() => {
-                      toast.success("Successfully logout");
-                    }).catch(err => {
-                      toast.err(err.message)
-                    })
+                      .then(() => {
+                        toast.success("Successfully logout");
+                      })
+                      .catch((err) => {
+                        toast.err(err.message);
+                      });
                   }}
                   className="btn btn-sm mt-4 font-bold cursor-pointer"
                 >
@@ -115,7 +134,7 @@ const MainLayout = ({ children }) => {
                 </button>
               </ul>
             </div>
-            }
+          )}
         </div>
         {children}
       </div>
