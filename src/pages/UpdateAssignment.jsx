@@ -36,8 +36,10 @@ const UpdateAssignment = () => {
       description,
       difficulty_level,
     };
-    if (email !== user.email) {
-      return toast.error(" Can't update another's assignment");
+    if(email) {
+      if (email !== user.email) {
+        return toast.error(" Can't update another's assignment");
+      }
     }
     axios
       .patch(`/assignments/${_id}`, updateData)
