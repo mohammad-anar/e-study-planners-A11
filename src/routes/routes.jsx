@@ -41,7 +41,7 @@ const routes = createBrowserRouter([
         path: "assignments/:id",
         element: <PrivateRoute><Assignmentdetails></Assignmentdetails></PrivateRoute>,
         loader: ({ params }) =>
-          axios.get(`http://localhost:5000/api/v1/assignments/${params.id}`),
+          axios.get(`https://dist-three-blue.vercel.app/api/v1/assignments/${params.id}`),
       },
       {
         path: "submittedassignment",
@@ -59,7 +59,7 @@ const routes = createBrowserRouter([
         path: "updateassignment/:id",
         element: <PrivateRoute><UpdateAssignment></UpdateAssignment></PrivateRoute>,
         loader: ({ params }) =>
-          axios.get(`http://localhost:5000/api/v1/assignments/${params.id}`),
+          axios.get(`https://dist-three-blue.vercel.app/api/v1/assignments/${params.id}`),
       },
       {
         path: "createassignment",

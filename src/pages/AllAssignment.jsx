@@ -7,7 +7,7 @@ const AllAssignment = () => {
     const axios = useAxios();
     const queryClient = useQueryClient();
     const getData = () => {
-        const res = axios.get("http://localhost:5000/api/v1/assignments");
+        const res = axios.get("https://dist-three-blue.vercel.app/api/v1/assignments");
         return res
     }
   const { data: assignments, isLoading } = useQuery({

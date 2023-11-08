@@ -4,35 +4,33 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="mt-12">
-        <footer className="footer p-10 bg-purple-600  text-white">
+        <footer className="footer p-10 bg-purple-600 dark:bg-black dark:border-t text-white">
       <aside>
       <div className="flex-1 text-4xl mb-2 font-bold">
             <Link>
               eStudy<span className="text-green-600">Partners</span>
             </Link>
           </div>
-        <p>
-          ACME Industries Ltd.
-          <br />
-          Providing reliable tech since 1992
+        <p className="max-w-[250px]">
+        To create a study group, sign in to your account and click on the Create Group button
         </p>
       </aside>
       <nav>
-        <header className="footer-title">Services</header>
-        <a className="link link-hover">Branding</a>
-        <a className="link link-hover">Design</a>
-        <a className="link link-hover">Marketing</a>
-        <a className="link link-hover">Advertisement</a>
+        <header className="font-bold text-black dark:text-white">Services</header>
+        <a className="link link-hover">All Assignments</a>
+        <a className="link link-hover">Create Assignments</a>
+        <a className="link link-hover">Update Assignments</a>
+        <a className="link link-hover">Submitted Assignments</a>
       </nav>
       <nav>
-        <header className="footer-title">Company</header>
+        <header className="font-bold text-black dark:text-white">Company</header>
         <a className="link link-hover">About us</a>
         <a className="link link-hover">Contact</a>
         <a className="link link-hover">Jobs</a>
         <a className="link link-hover">Press kit</a>
       </nav>
       <nav>
-        <header className="footer-title">Legal</header>
+        <header className="font-bold text-black dark:text-white">Legal</header>
         <a className="link link-hover">Terms of use</a>
         <a className="link link-hover">Privacy policy</a>
         <a className="link link-hover">Cookie policy</a>

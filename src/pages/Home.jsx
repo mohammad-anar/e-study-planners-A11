@@ -3,6 +3,7 @@ import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
 import Footer from "../components/Footer";
 import Faq from "../components/Faq";
+import Featured from "../components/Featured";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 const Home = () => {
@@ -22,7 +23,9 @@ const Home = () => {
       </div>
       {/* featured section  */}
       <section>
-        
+        <div>
+        <Featured></Featured>
+        </div>
       </section>
       {/* faq section  */}
       <section>
