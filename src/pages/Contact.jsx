@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { HiOutlineMailOpen } from "react-icons/hi";
 import { SlScreenSmartphone } from "react-icons/sl";
@@ -5,6 +6,9 @@ const Contact = () => {
     return (
         <div className="px-[2%] py-12 md:px-[3%] lg:px-[4%] mx-auto dark:bg-gray-900 bg-gray-200">
       <div>
+      <Helmet>
+        <title>eStudyPartners-contact</title>
+      </Helmet>
         <div className="text-center flex items-center justify-center h-full">
           <div>
             <h2
@@ -14,7 +18,7 @@ const Contact = () => {
               data-aos-duration="900"
               data-aos-easing="ease-in-out"
               data-aos-mirror="true"
-              className="text-4xl font-bold text-purple-600"
+              className="text-4xl font-bold text-amber-900"
             >
               Contact Us
             </h2>
@@ -40,10 +44,10 @@ const Contact = () => {
           data-aos-duration="900"
           data-aos-easing="ease-in-out"
           data-aos-mirror="true"
-          className="border border-purple-600 dark:text-gray-400 rounded-xl p-6 text-center"
+          className="border border-amber-900 dark:text-gray-400 rounded-xl p-6 text-center"
         >
-          <FaMapLocationDot className="text-purple-600 text-4xl mx-auto mb-3"></FaMapLocationDot>
-          <h2 className="text-3xl font-bold text-purple-600 mb-2">Address</h2>
+          <FaMapLocationDot className="text-amber-900 text-4xl mx-auto mb-3"></FaMapLocationDot>
+          <h2 className="text-3xl font-bold text-amber-900 mb-2">Address</h2>
           <p className="text-lg">Wahington, NY 10036, United States</p>
         </div>
         <div
@@ -53,10 +57,10 @@ const Contact = () => {
           data-aos-duration="900"
           data-aos-easing="ease-in-out"
           data-aos-mirror="true"
-          className="border border-purple-600 dark:text-gray-400 rounded-xl p-6 text-center"
+          className="border border-amber-900 dark:text-gray-400 rounded-xl p-6 text-center"
         >
-          <HiOutlineMailOpen className=" text-purple-600 text-4xl mx-auto mb-3"></HiOutlineMailOpen>
-          <h2 className="text-3xl font-bold text-purple-600 mb-2">Email</h2>
+          <HiOutlineMailOpen className=" text-amber-900 text-4xl mx-auto mb-3"></HiOutlineMailOpen>
+          <h2 className="text-3xl font-bold text-amber-900 mb-2">Email</h2>
           <p className="text-lg">egroupstudy@gmail.com</p>
         </div>
         <div
@@ -66,10 +70,10 @@ const Contact = () => {
           data-aos-duration="900"
           data-aos-easing="ease-in-out"
           data-aos-mirror="true"
-          className="border border-purple-600 dark:text-gray-400 rounded-xl p-6 text-center"
+          className="border border-amber-900 dark:text-gray-400 rounded-xl p-6 text-center"
         >
-          <SlScreenSmartphone className=" text-purple-600 text-4xl mx-auto mb-3"></SlScreenSmartphone>
-          <h2 className="text-3xl font-bold text-purple-600 mb-2">Phone</h2>
+          <SlScreenSmartphone className=" text-amber-900 text-4xl mx-auto mb-3"></SlScreenSmartphone>
+          <h2 className="text-3xl font-bold text-amber-900 mb-2">Phone</h2>
           <p className="text-lg">09336655412</p>
         </div>
       </div>
@@ -95,7 +99,7 @@ const Contact = () => {
         data-aos-easing="ease-in-out"
         data-aos-mirror="true" className="relative flex  flex-col dark:bg-gray-600 bg-white rounded-xl order-1 lg:order-2 p-12">
           <div>
-            <h2 className="text-4xl dark:text-white text-purple-600 font-bold b-2">
+            <h2 className="text-4xl dark:text-white text-amber-900 font-bold b-2">
               Get In Touch
             </h2>
             <p className="text-lg text-gray-800 mb-6 dark:text-gray-200">
@@ -141,7 +145,7 @@ const Contact = () => {
               rows="2"
               placeholder="Text here"
             ></textarea>
-            <button className="text-xl btn btn-md font-bold hover:bg-transparent hover:text-purple-600 border hover:border-purple-600 border-purple-600 duration-500 text-white bg-purple-600 mt-4">
+            <button className="text-xl btn btn-md font-bold hover:bg-transparent hover:text-amber-900 border hover:border-amber-900 border-amber-900 duration-500 text-white bg-amber-900 mt-4">
               Send
             </button>
           </div>

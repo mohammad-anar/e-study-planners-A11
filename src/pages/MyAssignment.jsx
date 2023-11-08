@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxios from "../hooks/useAxios";
 import { useContext, useState } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const MyAssignment = () => {
   const [submitedData, setSubmittedData] = useState({});
@@ -29,10 +30,13 @@ const MyAssignment = () => {
   };
   return (
     <div>
+    <Helmet>
+        <title>eStudyPartners-myy_assignments</title>
+      </Helmet>
       <div>
         {isLoading ? (
           <div className="h-screen flex justify-center items-center">
-            <span className="loading loading-spinner text-purple-600"></span>
+            <span className="loading loading-spinner text-amber-900"></span>
           </div>
         ) : (
           <div className="dark:bg-black  px-[5%] lg:px-[10%] min-h-screen bg-gray-200">
@@ -40,7 +44,7 @@ const MyAssignment = () => {
               data-aos="flip-right"
               data-aos-easing="linear"
               data-aos-duration="800"
-              className="text-3xl md:text-5xl text-purple-600 text-center py-12 font-bold"
+              className="text-3xl md:text-5xl text-amber-900 text-center py-12 font-bold"
             >
               My Assignments
             </h2>
@@ -51,7 +55,7 @@ const MyAssignment = () => {
             data-aos-duration="600"  key={assignment._id}>
                   <div className="relative flex min-h-[220px] flex-col text-gray-700 bg-white dark:bg-gray-800 shadow-md rounded-md bg-clip-border">
                     <div className="p-6 pb-4 flex-1 felx flex-col h-full">
-                      <h5 className="block flex-1 mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-purple-600 dark:text-gray-100">
+                      <h5 className="block flex-1 mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-amber-900 dark:text-gray-100">
                         {assignment?.title}
                         {console.log(assignment.getMarks)}
                       </h5>
@@ -70,7 +74,7 @@ const MyAssignment = () => {
                     <div className="p-6 pt-0 flex-1 flex items-center justify-between">
                       <button
                         id="give-mark"
-                        className=" select-none rounded-lg bg-purple-600 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-purple-6bg-purple-600/20 transition-all hover:shadow-lg hover:shadow-purple-6bg-purple-600/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                        className=" select-none rounded-lg bg-amber-900 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-purple-6bg-amber-900/20 transition-all hover:shadow-lg hover:shadow-purple-6bg-amber-900/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         type="button"
                         data-ripple-light="true"
                       >

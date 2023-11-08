@@ -1,8 +1,8 @@
 ### Hi! There. I am Mohammad Anarul Islam ✋  
 #### I describe my project features below -
 
-<h2 style="text-align:center">Projuct Features</h2>  
-
+<h2 style="text-align:center">Projuct Features</h2> 
+<p> This is a basic online group study website. First time I build this type of project</p>
  * I use AOS animation over all the website. Diffrent sections and fields has diffrent animation.
 
  * This project have 'react Helmet' integration on every page.
@@ -13,6 +13,12 @@
 
  * Data store on MongoDB atlas and show them dynamically.
 
+ * I am also use react date picker.
+
+ * JWT verification on server for authentication database includes here.
+ 
+ * React pdf also use on the project.
+
  * This project have some Private route. With out sign in can't access them.
 
- ### My website live preview link :- https://digital-store-7502c.web.app/
+ ### My website live preview link :- https://egroupstudy.surge.sh/

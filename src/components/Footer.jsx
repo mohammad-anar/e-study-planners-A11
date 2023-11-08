@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="mt-12">
-        <footer className="footer p-10 bg-purple-600 dark:bg-black dark:border-t text-white">
+        <footer className="footer p-10 bg-gray-900 dark:bg-black dark:border-t text-white">
       <aside>
       <div data-aos="slide-right"
             data-aos-easing="linear"
             data-aos-duration="500" className="flex-1 text-4xl mb-2 font-bold">
             <Link>
-              eStudy<span className="text-green-600">Partners</span>
+              eStudy<span className="text-amber-900">Partners</span>
             </Link>
           </div>
         <p data-aos="zoom-in"

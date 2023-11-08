@@ -15,7 +15,7 @@ const Featured = () => {
         data-aos="flip-right"
         data-aos-easing="linear"
         data-aos-duration="500"
-        className="text-3xl md:text-5xl font-bold  text-purple-600 py-12 text-center"
+        className="text-3xl md:text-5xl font-bold  text-amber-900 py-12 text-center"
       >
         Featured section
       </h2>
@@ -121,7 +121,7 @@ const Featured = () => {
         </div>
         <div className="keen-slider__slide number-slide1 w-[600px] rounded-xl min-w-[300px]  bg-white dark:bg-gray-800 border dark:border-none shadow-xl">
           <div className="card card-compact  h-full">
-            <div className="w-full h-[5px] mt-3 bg-purple-600"></div>
+            <div className="w-full h-[5px] mt-3 bg-amber-900"></div>
             <div className="card-body flex flex-col justify-between ">
               <h2
                 data-aos="fade-down"

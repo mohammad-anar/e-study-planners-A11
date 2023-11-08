@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import AssignmentsCard from "../components/AssignmentsCard";
 import toast from "react-hot-toast";
 import useAxios from "../hooks/useAxios";
+import { Helmet } from "react-helmet-async";
 
 const AllAssignment = () => {
     const axios = useAxios();
@@ -27,7 +28,10 @@ const AllAssignment = () => {
   })
   return (
     <div>
-        <h1  className="text-3xl bg-gray-200 dark:bg-black md:text-5xl text-purple-600 font-bold text-center py-12 "><p data-aos="flip-right"
+    <Helmet>
+        <title>eStudyPartners-all_assignment</title>
+      </Helmet>
+        <h1  className="text-3xl bg-gray-200 dark:bg-black md:text-5xl text-amber-900 font-bold text-center py-12 "><p data-aos="flip-right"
             data-aos-easing="linear"
             data-aos-duration="800" >All Assignments</p> </h1>
         <div className="grid bg-gray-200 dark:bg-black grid-cols-1 gap-x-8 lg:grid-cols-2 gap-5 px-[5%] md:px-[10%]">

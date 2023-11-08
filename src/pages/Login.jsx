@@ -29,6 +29,7 @@ const Login = () => {
             if (location.state) {
               return navigate(location.state);
             }
+            navigate("/")
            
           })
           .catch((err) => toast.error(err.message));
@@ -46,7 +47,7 @@ const Login = () => {
           .post("/access-token", { email: user.email })
           .then(() => {
             if (location.state) {
-              return navigate(location.state);
+              return navigate(location.state) || "/"
             }
             navigate("/");
           })
@@ -63,7 +64,7 @@ const Login = () => {
           .post("/access-token", { email: user.email })
           .then(() => {
             if (location.state) {
-              return navigate(location.state);
+              return navigate(location.state) || "/"
             }
             navigate("/");
           })

@@ -1,9 +1,13 @@
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
     return (
         <div className="px-[2%] md:px-[3%] lg:px-[4%] h-screen">
+        <Helmet>
+        <title>eStudyPartners-about</title>
+      </Helmet>
       <h1
-        className="text-5xl my-12 font-bold text-center text-teal-600"
+        className="text-5xl my-12 font-bold text-center text-amber-900"
         data-aos="flip-right"
         data-aos-easing="ease-in-out"
         data-aos-delay="300"
@@ -22,7 +26,7 @@ const About = () => {
           <p className="text-gray-400 mb-6">
           Welcome to our online group study platform, where learning becomes a collaborative adventure. Connect with like-minded students and learners from around the world to form study groups, engage in real-time video discussions, share study materials, and achieve academic excellence together. Join us today and embark on a journey of interactive learning, knowledge sharing, and collective success
           </p>
-          <button className="btn btn-lg bg-teal-600 text-white">
+          <button className="btn btn-lg bg-amber-900 text-white">
             Read More
           </button>
         </div>

@@ -78,7 +78,7 @@ const MainLayout = ({ children }) => {
             className="flex-1 px-2 mx-2 text-xl md:text-3xl font-bold"
           >
             <Link>
-              eStudy<span className="text-amber-600">Partners</span>
+              eStudy<span className="text-amber-900">Partners</span>
             </Link>
           </div>
           <div className="flex-2  hidden lg:block">
@@ -99,7 +99,7 @@ const MainLayout = ({ children }) => {
           {!user ? (
             <Link
               to={"/login"}
-              className="text-sm font-medium ml-8 btn btn-sm text-white btn-success"
+              className="text-sm font-medium ml-8 btn btn-sm text-white bg-amber-900"
             >
               Login
             </Link>

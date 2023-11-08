@@ -16,7 +16,7 @@ const AssignmentsCard = ({ assignment , mutate}) => {
   return (
     <div data-aos="fade-up"
     data-aos-easing="linear"
-    data-aos-duration="600"  className="relative flex w-full flex-col  md:flex-row rounded-md dark:border dark:border-purple-400 bg-white dark:bg-gray-900 dark:bg-opacity-20 text-gray-700 dark:text-white shadow-md">
+    data-aos-duration="600"  className="relative flex w-full flex-col  md:flex-row rounded-md dark:border dark:border-amber-200 bg-white dark:bg-gray-900 dark:bg-opacity-20 text-gray-700 dark:text-white shadow-md">
       <div className="relative rounded-md w-full md:w-2/5 m-0 overflow-hidden mx-auto md:mx-0 text-gray-700 bg-white dark:bg-black dark:bg-opacity-20 shrink-0 bg-clip-border">
         <div className="flex h-full items-center p-6">
           <img
@@ -27,7 +27,7 @@ const AssignmentsCard = ({ assignment , mutate}) => {
         </div>
       </div>
       <div className="p-6 w-full">
-        <h4 className=" mb-2 font-sans text-lg flex flex-col gap-1 justify-between items-start antialiased font-semibold leading-snug tracking-normal text-purple-600">
+        <h4 className=" mb-2 font-sans text-lg flex flex-col gap-1 justify-between items-start antialiased font-semibold leading-snug tracking-normal text-amber-900">
           <span>{title}</span>
           <span className="text-sm text-black dark:text-white flex items-center w-[120px]">
             Marks: {total_marks}
