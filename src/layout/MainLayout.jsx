@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import useMyContext from "../hooks/useMyContext";
-import { TbMailHeart } from "react-icons/tb";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
-import { BsMoon, BsSun } from "react-icons/bs";
+import { BsCollectionPlayFill, BsMoon, BsSun } from "react-icons/bs";
+import { BiHomeAlt, BiUserCheck } from "react-icons/bi";
+import { AiOutlineUsergroupAdd } from "react-icons/ai";
+import { PiShareFat } from "react-icons/pi";
 
 const MainLayout = ({ children }) => {
   const [mode, setMode] = useState("light");
@@ -29,11 +31,21 @@ const MainLayout = ({ children }) => {
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col ">
         {user && (
-          <div className="bg-black  text-white p-1 py-3 px-[5%]">
+          <div className="bg-black  text-white p-1 py-3 px-[5%] flex items-center justify-center gap-2 flex-col sm:flex-row sm:gap-12 flex-wrap">
             <h2 className="flex items-center justify-center gap-2">
-              <TbMailHeart className="text-xl text-purple-700"></TbMailHeart>
-              Email: {user.email}
-            </h2>
+              <BiUserCheck className="text-xl text-amber-700"></BiUserCheck>
+              user: {user.email}
+            </h2> 
+            <div className="flex items-center gap-4 ">
+              <Link to={"/"}><BiHomeAlt></BiHomeAlt></Link>
+              <Link to="/friends"><AiOutlineUsergroupAdd></AiOutlineUsergroupAdd></Link>
+              <Link><BsCollectionPlayFill></BsCollectionPlayFill></Link>
+              <Link><PiShareFat></PiShareFat></Link>
+              
+              
+              
+
+            </div>
           </div>
         )}
         {/* Navbar */}
@@ -66,7 +78,7 @@ const MainLayout = ({ children }) => {
             className="flex-1 px-2 mx-2 text-xl md:text-3xl font-bold"
           >
             <Link>
-              eStudy<span className="text-green-600">Partners</span>
+              eStudy<span className="text-amber-600">Partners</span>
             </Link>
           </div>
           <div className="flex-2  hidden lg:block">
