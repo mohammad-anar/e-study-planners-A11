@@ -27,7 +27,7 @@ const SubmittedAssignment = () => {
     console.log(assignments);
   // submit func
 //   useEffect(() => {
-//     fetch(`https://dist-three-blue.vercel.app/api/v1/submittedassignment?status=pending&email=${user?.email}`)
+//     fetch(`http://localhost:5000/api/v1/submittedassignment?status=pending&email=${user?.email}`)
 //     .then(res => res.json())
 //     .then(data => setAssignments(data))
 //   }, [axios, user?.email]);

@@ -12,7 +12,7 @@ const AssignmentForm = ({ title, btnName, handleCreate }) => {
     const title = form.title.value;
     const image = form.image.value;
     const mark = form.mark.value;
-    const difficulity = form.difficulity.value;
+    const difficulity = form.difficulty.value;
     const date = form.date.value;
     const description = form.description.value;
     const assignment = {
