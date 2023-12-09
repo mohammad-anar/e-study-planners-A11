@@ -2,11 +2,13 @@
 import PropTypes from "prop-types";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import useMyContext from "../hooks/useMyContext";
 const AssignmentsCard = ({ assignment , mutate}) => {
+  const {user} = useMyContext();
   // const axios = useAxios();
   
   const navigate = useNavigate();
-  const { _id, title, image, total_marks, difficulty_level } = assignment;
+  const { _id, title, image, total_marks, difficulty_level, email } = assignment;
 
   // const handleDelete = () => {
   //   axios.delete(`/assignments/${_id}`)
@@ -57,14 +59,14 @@ const AssignmentsCard = ({ assignment , mutate}) => {
                 <FaLongArrowAltRight></FaLongArrowAltRight>
               </span>
             </button>
-            <button onClick={() => mutate(_id)}
+            {user?.email === email && <button onClick={() => mutate(_id)}
               className="btn flex-1 capitalize btn-sm border-none outline-none   bg-gray-800 text-white "
             >
               Delete
               <span>
                 <FaLongArrowAltRight></FaLongArrowAltRight>
               </span>
-            </button>
+            </button>}
           </div>
         </div>
       </div>

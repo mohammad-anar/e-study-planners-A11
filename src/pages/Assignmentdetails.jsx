@@ -110,12 +110,13 @@ const Assignmentdetails = () => {
                   name="assignment-link"
                   id="assignmentpdf"
                   placeholder="assignment pdf link here"
-                  className="input dark:bg-transparent outline-none  border-purple-600 w-full"
+                  className="input mb-4 dark:bg-transparent outline-none  border-purple-600 w-full"
                 />
+                <label  className="text-black font-semibold dark:text-white text-sm" htmlFor="comment">Give quick note</label>
                 <textarea
                   name="comment"
                   id="comment"
-                  className="border w-full  rounded-lg mt-4 dark:bg-transparent outline-none p-2 px-3 resize-none border-purple-600"
+                  className="border w-full  rounded-lg mt-1 dark:bg-transparent outline-none p-2 px-3 resize-none border-purple-600"
                   placeholder="text"
                   rows="2"
                 ></textarea>

@@ -24,13 +24,6 @@ const SubmittedAssignment = () => {
       queryFn: getData,
     });
     const assignments = data?.data;
-    console.log(assignments);
-  // submit func
-//   useEffect(() => {
-//     fetch(`http://localhost:5000/api/v1/submittedassignment?status=pending&email=${user?.email}`)
-//     .then(res => res.json())
-//     .then(data => setAssignments(data))
-//   }, [axios, user?.email]);
   const handleClick = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -59,7 +52,6 @@ const SubmittedAssignment = () => {
     axios
       .get(`/submittedassignment/${id}?email=${user?.email}`)
       .then((res) => {
-        console.log(res.data);
         setSubmittedData(res.data);
       })
       .catch((err) => {
@@ -117,8 +109,19 @@ const SubmittedAssignment = () => {
                       </label>
                     </button>
 
-                    {/* MODAL  */}
-                    <input
+                    
+                    <p className="block bg-gray-200 dark:bg-gray-600 dark:text-gray-200 p-2 rounded-lg font-sans text-base antialiased font-light leading-relaxed text-inherit">
+                      Status: {crd.status}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      {/* MODAL  */}
+      <input
                       type="checkbox"
                       id="my_modal_7"
                       className="modal-toggle"
@@ -180,16 +183,6 @@ const SubmittedAssignment = () => {
                         Close
                       </label>
                     </div>
-                    <p className="block bg-gray-200 dark:bg-gray-600 dark:text-gray-200 p-2 rounded-lg font-sans text-base antialiased font-light leading-relaxed text-inherit">
-                      Status: {crd.status}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </>
   );
 };

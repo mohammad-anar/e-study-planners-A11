@@ -4,7 +4,7 @@ import { HiOutlineMailOpen } from "react-icons/hi";
 import { SlScreenSmartphone } from "react-icons/sl";
 const Contact = () => {
     return (
-        <div className="px-[2%] py-12 md:px-[3%] lg:px-[4%] mx-auto dark:bg-gray-900 bg-gray-200">
+        <div className="px-[2%] overflow-x-hidden py-12 md:px-[3%] lg:px-[4%] mx-auto dark:bg-gray-900 bg-gray-200">
       <div>
       <Helmet>
         <title>eStudyPartners-contact</title>

@@ -1,7 +1,10 @@
 import { BsCaretDownFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
+import useMyContext from "../hooks/useMyContext";
 
 const Navbar = () => {
+  const {user} = useMyContext();
+  console.log({user});
   return (
     <>
       <NavLink
@@ -52,22 +55,22 @@ const Navbar = () => {
             >
               All Assignment
             </NavLink>
-            <NavLink
-              data-aos="zoom-out"
-              data-aos-easing="linear"
-              data-aos-duration="600"
-              className={({ isActive, isPending }) => {
-                return isPending
-                  ? "Pending"
-                  : isActive
-                  ? "underline border-none text-white"
-                  : "";
-              }}
-              to={"/myassignment"}
-            >
-              MyAssignment
-            </NavLink>
-            <NavLink
+          {user?.email && <NavLink
+            data-aos="zoom-out"
+            data-aos-easing="linear"
+            data-aos-duration="600"
+            className={({ isActive, isPending }) => {
+              return isPending
+                ? "Pending"
+                : isActive
+                ? "underline border-none text-white"
+                : "";
+            }}
+            to={"/myassignment"}
+          >
+            MyAssignment
+          </NavLink>}
+            {user?.email && <NavLink
               data-aos="zoom-out"
               data-aos-easing="linear"
               data-aos-duration="600"
@@ -81,8 +84,8 @@ const Navbar = () => {
               to={"/createassignment"}
             >
               Create Assignment
-            </NavLink>
-            <NavLink
+            </NavLink>}
+            {user?.email &&  <NavLink
               data-aos="zoom-out"
               data-aos-easing="linear"
               data-aos-duration="600"
@@ -96,7 +99,7 @@ const Navbar = () => {
               to={"/submittedassignment"}
             >
               Submitted Assignment
-            </NavLink>
+            </NavLink>}
           </div>
         </ul>
       </div>

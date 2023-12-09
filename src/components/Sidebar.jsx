@@ -1,7 +1,9 @@
 import { BsCaretDownFill } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
+import useMyContext from "../hooks/useMyContext";
 
 const Sidebar = () => {
+  const {user} = useMyContext();
   return (
     <>
       <NavLink
@@ -65,7 +67,7 @@ const Sidebar = () => {
             >
               MyAssignment
             </NavLink>
-            <NavLink
+            {user?.email && <NavLink
               className={({ isActive, isPending }) => {
                 return isPending
                   ? "Pending"
@@ -76,8 +78,8 @@ const Sidebar = () => {
               to={"/createassignment"}
             >
               Create Assignment
-            </NavLink>
-            <NavLink
+            </NavLink>}
+            {user?.email && <NavLink
               className={({ isActive, isPending }) => {
                 return isPending
                   ? "Pending"
@@ -88,7 +90,7 @@ const Sidebar = () => {
               to={"/submittedassignment"}
             >
               Submitted Assignment
-            </NavLink>
+            </NavLink>}
           </div>
         </ul>
       </div>
